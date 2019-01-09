@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5c3652021814bc2a84d2b022"},"Coursecode":"ECE4003","Coursename":"LIC","L":{"$numberInt":"4"},"T":{"$numberInt":"0"},"P":{"$numberInt":"0"},"J":{"$numberInt":"0"},"C":{"$numberInt":"4"},"List_teacher":[{"Registerno":"12345","Slot":"A2","Class":"AB1-610"},{"Registerno":"11223","Slot":"A1","Class":"AB1-510"}]}

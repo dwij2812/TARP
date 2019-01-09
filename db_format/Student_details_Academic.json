@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5c364f201814bc2a84d2b021"},"Registerno":"16BLC1002","Credits_c":{"$numberInt":"130"},"Credits_R":{"$numberInt":"150"},"CGPA":{"$numberDouble":"8.1"},"List_Course":[{"Coursecode":"ECE4003","Grade":"B"},{"Coursecode":"CSE1007","Grade":"B"}]}
