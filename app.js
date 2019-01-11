@@ -8,7 +8,7 @@ mongoose.connect(db,function(err,db){
   if(err)
   throw err
   else {
-    console.log("con")
+    console.log("Database has been Successfully Connected")
   }
 });
 app.set('view engine', 'ejs')
