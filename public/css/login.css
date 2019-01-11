@@ -1,0 +1,21 @@
+
+#username{
+  width: 60%;
+}
+#password{
+  width: 60%
+}
+#login{
+  width: 30%
+}
+main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.card.is-wide {
+  width: 500px;
+  height: 250px;
+}
