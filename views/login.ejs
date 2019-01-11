@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Login: SMS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
      <link rel="stylesheet" href="../public/css/login.css">
@@ -10,16 +10,39 @@
       <script type="text/javascript" src="../public/js/action.js"></script>
   </head>
 <body>
+  <section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        SMS: VIT Chennai
+      </h1>
+      <h2 class="subtitle">
+        A Minimal Schedule management System
+      </h2>
+    </div>
+  </div>
+</section>
   <main role="main">
+    <form action="/" method="POST" id="form1">
   <div class="card has-text-centered is-wide">
     <div class="card-content">
+      <div class="field">
     <label class="label">Username</label>
-  <input type="text" name="username" id="username" class="input is-primary"><br>
+  <input type="text" name="username" id="username" class="input is-info"><br>
+</div>
+<div class="field">
     <label class="label">Password</label>
-  <input type="password" name="password" id="password" class="input is-primary"><br><br>
-<a class="button is-primary" id="login">Login</a>
+  <input type="password" name="password" id="password" class="input is-info"><br><br>
+</div>
+<div class="field">
+  <button class="button is-info is-rounded is-medium">
+    Login
+  </button>
+</div>
   </div>
+  </form>
   </div>
-</<main>
+
+</main>
   </body>
 </html>
