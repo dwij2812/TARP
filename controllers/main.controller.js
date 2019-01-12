@@ -15,14 +15,14 @@ exports.login =(req,res) =>{
     .exec(function(err, login_db) {
       if(err) {
         res.send('error occured')
-      } else {
-        if((login_db['Registerno']) == register_no && login_db['Password'] == password){
-          res.render("../views/dashboard",{name:register_no})
-
-        }
-        else {
-          res.redirect("/")
-                  }
+      }
+      else {
+          if((login_db['Registerno']) == register_no && login_db['Password'] == password){
+            res.render("../views/dashboard",{name:register_no})
+          }
+          else {
+            res.render("../views/login")
+          }
       }
     });
 }
