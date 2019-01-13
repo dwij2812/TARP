@@ -25,6 +25,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.3",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "jquery": "^3.3.1"
   }
 }

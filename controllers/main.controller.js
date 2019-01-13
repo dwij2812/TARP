@@ -29,12 +29,41 @@ exports.login =(req,res) =>{
             }
             else{
             name=student_personal_db['Name']
+            email=student_personal_db['Email']
+            mobile=student_personal_db['Mobile']
+            address=student_personal_db['Address']
           }
           passport.authenticate('local')(req, res, function(){
-            res.render("../views/dashboard",{name:name})
+            res.render("../views/dashboard",{name:name,register:register_no})
         });
           });
       }
     };
 });
+}
+
+exports.detail =(req,res)=>{
+  register_no=req.body.regno
+  console.log(register_no)
+  console.log(req.body)
+  student_personal.findOne({
+    Registerno:register_no
+  })
+  .exec(function(err,student_personal_db){
+    if(err){
+      res.send('error occured')
+      console.log("error in student_personal")
+    }
+    else{
+    name=student_personal_db['Name']
+    email=student_personal_db['Email']
+    mobile=student_personal_db['Mobile']
+    address=student_personal_db['Address']
+  }
+
+    passport.authenticate('local')(req, res, function(){
+      res.render("../views/profile",{name:name,register:register_no,email:email,attendance:"98",CGPA:"9.88",ccomp:"9",creg:"87",mobile:mobile,email:email,address:address});
+      });
+    });
+
 }

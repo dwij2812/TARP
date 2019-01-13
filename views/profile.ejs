@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
@@ -79,7 +81,7 @@
                         <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
                     </ul>
                 </nav-->
-                <section class="hero is-Link welcome is-small">
+                <section class="hero is-link welcome is-small">
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
@@ -98,13 +100,13 @@
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title"><% attendance %></p>
+                                <p class="title"><%= attendance %></p>
                                 <p class="subtitle">Attendance</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title"><% CGPA %></p>
+                                <p class="title"><%= CGPA %></p>
                                 <p class="subtitle">CGPA</p>
                             </article>
                         </div>
@@ -132,7 +134,7 @@
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title"><%= email %></p>
+                                <p class="subtitle has-text-weight-bold has-text-black"><%= email %></p>
                                 <p class="subtitle">Email Address</p>
                             </article>
                         </div>
@@ -142,7 +144,7 @@
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="title"><%= address %></p>
+                                <p class="subtitle has-text-weight-bold has-text-black"><%= address %></p>
                                 <p class="subtitle">Residential Address</p>
                             </article>
                         </div>
