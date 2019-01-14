@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/dwij2812/TARP#readme",
   "keywords": [],
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "bulma": "^0.7.2",

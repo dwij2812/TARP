@@ -3,6 +3,8 @@ const express=require('express')
 const passport = require('passport')
 const login =require('../models/login_details.model')
 const student_personal =require('../models/Student_details_personal.model')
+const student_academic =require('../models/Student_details_academic.model')
+
 
 exports.index =(req,res)=>{
   res.render("../views/login")
@@ -29,9 +31,6 @@ exports.login =(req,res) =>{
             }
             else{
             name=student_personal_db['Name']
-            email=student_personal_db['Email']
-            mobile=student_personal_db['Mobile']
-            address=student_personal_db['Address']
           }
           passport.authenticate('local')(req, res, function(){
             res.render("../views/dashboard",{name:name,register:register_no})
@@ -45,7 +44,6 @@ exports.login =(req,res) =>{
 exports.detail =(req,res)=>{
   register_no=req.body.regno
   console.log(register_no)
-  console.log(req.body)
   student_personal.findOne({
     Registerno:register_no
   })
@@ -59,11 +57,23 @@ exports.detail =(req,res)=>{
     email=student_personal_db['Email']
     mobile=student_personal_db['Mobile']
     address=student_personal_db['Address']
-  }
-
+    student_academic.findOne({
+      Registerno:register_no
+    })
+    .exec(function(err,student_academic_db){
+      if(err){
+        res.send('error occured')
+        console.log("error in student_academic")
+      }
+      else{
+        cgpa=student_academic_db['CGPA']
+        ccomp=student_academic_db['Credits_c']
+        creg=student_academic_db['Credits_R']
+      }
     passport.authenticate('local')(req, res, function(){
-      res.render("../views/profile",{name:name,register:register_no,email:email,attendance:"98",CGPA:"9.88",ccomp:"9",creg:"87",mobile:mobile,email:email,address:address});
+      res.render("../views/profile",{name:name,register:register_no,email:email,attendance:"98",CGPA:cgpa,ccomp:ccomp,creg:creg,mobile:mobile,email:email,address:address});
       });
     });
-
+  }
+});
 }
