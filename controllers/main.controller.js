@@ -40,7 +40,6 @@ exports.login =(req,res) =>{
     };
 });
 }
-
 exports.detail =(req,res)=>{
   register_no=req.body.regno
   console.log(register_no)
@@ -61,6 +60,7 @@ exports.detail =(req,res)=>{
       Registerno:register_no
     })
     .exec(function(err,student_academic_db){
+      console.log(student_academic_db)
       if(err){
         res.send('error occured')
         console.log("error in student_academic")
@@ -76,4 +76,41 @@ exports.detail =(req,res)=>{
     });
   }
 });
+}
+exports.register=(req,res)=>{
+  register_no=req.body.regno
+console.log(register_no)
+student_personal.findOne({
+  Registerno:register_no
+})
+.exec(function(err,student_personal_db){
+  if(err){
+    res.send('error occured')
+    console.log("error in student_personal")
+  }
+  else{
+  name=student_personal_db['Name']
+  email=student_personal_db['Email']
+  mobile=student_personal_db['Mobile']
+}
+res.render("../views/registration",{'name':name,'register':register_no,'email':email})
+})
+}
+exports.regular=(req,res)=>{
+  register_no=req.body.regno
+student_personal.findOne({
+  Registerno:register_no
+})
+.exec(function(err,student_personal_db){
+  if(err){
+    res.send('error occured')
+    console.log("error in student_personal")
+  }
+  else{
+  name=student_personal_db['Name']
+  email=student_personal_db['Email']
+  mobile=student_personal_db['Mobile']
+}
+res.render("../views/registration2",{'register':register_no,'email':email})
+})
 }

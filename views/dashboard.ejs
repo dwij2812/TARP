@@ -18,6 +18,11 @@
      console.log("Post Requested");
       document.getElementById("profilesubmit").submit();
    }
+   function Doregister(){
+     console.log("Post Requested");
+      document.getElementById("register").submit();
+   }
+
 </script>
 
 </head>
@@ -79,6 +84,10 @@
                     <ul class="menu-list">
                         <li><a>Courses</a></li>
                         <li><a>Digital Assignments</a></li>
+                        <li><a onclick="Doregister()">Register</a></li>
+                        <form action="/register" method="POST" id="register">
+                          <input type="text" name="regno" id="regno" value="<%= register %>" hidden>
+                        </form>
                         <li><a>Course Materials</a></li>
                     </ul>
                 </aside>
