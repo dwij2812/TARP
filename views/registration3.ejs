@@ -12,6 +12,40 @@
     <!-- Bulma Version 0.7.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/admin.css">
+    <script>
+        (function () {
+            if (window.addEventListener) {
+                window.addEventListener('load', run, false);
+            }
+            else if (window.attachEvent) {
+                window.attachEvent('onload', run);
+            }
+
+function run() {
+    var t = document.getElementById('courseTable');
+    t.onclick = function (event) {
+        event = event || window.event; //IE8
+        var target = event.target || event.srcElement;
+        while (target && target.nodeName != 'TR') { // find TR
+            target = target.parentElement;
+        }
+        //if (!target) { return; } //tr should be always found
+        var cells = target.cells; //cell collection - https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement
+        //var cells = target.getElementsByTagName('td'); //alternative
+        if (!cells.length || target.parentNode.nodeName == 'THEAD') {
+            return;
+        }
+        var f1 = document.getElementById('Slot');
+        var f2 = document.getElementById('Faculty');
+        f1.value = cells[0].innerHTML;
+        f2.value = cells[1].innerHTML;
+        //console.log(target.nodeName, event);
+        console.log(f1,f2);
+    };
+}
+
+})();
+    </script>
 
 </head>
 
@@ -98,48 +132,46 @@
                         </div>
                     </div>
                 </section>
-                <section class="info-tiles"
-                <form action="/registercourseteacher" method="POST" id="coursesubmit">
-                  <input type="text" name="coursecode" id="coursecode" value="<%= course.Coursecode %>" hidden />
-                  
+                <section class="info-tiles" <input type="text" name="coursecode" id="coursecode" value="<%= course.Coursecode %>" hidden />
 
-                    <table class="table is-narrow is-bordered" id="coursedetail">
-                        <thead>
-                            <tr>
-                                <th><abbr title="Course Code">C Code.</abbr></th>
-                                <th><abbr title="Course Name">Name</abbr></th>
-                                <th><abbr title="Lecture">L</abbr></th>
-                                <th><abbr title="Theory">T</abbr></th>
-                                <th><abbr title="Practical">P</abbr></th>
-                                <th><abbr title="Project">J</abbr></th>
-                                <th><abbr title="Cummulative">C</abbr></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <%= course.Coursecode %>
-                                </td>
-                                <td><a title="<%= course.Coursename %>">
-                                        <%= course.Coursename %></a></td>
-                                <td>
-                                    <%= course.L %>
-                                </td>
-                                <td>
-                                    <%= course.T %>
-                                </td>
-                                <td>
-                                    <%= course.P %>
-                                </td>
-                                <td>
-                                    <%= course.J %>
-                                </td>
-                                <td>
-                                    <%= course.C %>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <table class="table is-fullwidth is-bordered" id="coursedetail">
+                    <thead>
+                        <tr>
+                            <th><abbr title="Course Code">C Code.</abbr></th>
+                            <th><abbr title="Course Name">Name</abbr></th>
+                            <th><abbr title="Lecture">L</abbr></th>
+                            <th><abbr title="Theory">T</abbr></th>
+                            <th><abbr title="Practical">P</abbr></th>
+                            <th><abbr title="Project">J</abbr></th>
+                            <th><abbr title="Cummulative">C</abbr></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= course.Coursecode %>
+                            </td>
+                            <td><a title="<%= course.Coursename %>">
+                                    <%= course.Coursename %></a></td>
+                            <td>
+                                <%= course.L %>
+                            </td>
+                            <td>
+                                <%= course.T %>
+                            </td>
+                            <td>
+                                <%= course.P %>
+                            </td>
+                            <td>
+                                <%= course.J %>
+                            </td>
+                            <td>
+                                <%= course.C %>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 </section>
                 <section class="info-tiles">
@@ -151,35 +183,46 @@
                         </div>
                     </div>
                 </section>
-                <table class="table" id="courseTable">
+                <table class="table is-fullwidth is-striped" id="courseTable">
                     <div class="control">
-                    <thead>
-                        <tr>
-                            <th><abbr title="Slot(s)">Slot(s)</abbr></th>
-                            <th><abbr title="Faculty">Faculty</abbr></th>
-                            <th><abbr title="Available">Available</abbr></th>
-                            <th><abbr title="Register">Register</abbr></th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th><abbr title="Slot(s)">Slot(s)</abbr></th>
-                            <th><abbr title="Faculty">Faculty</abbr></th>
-                            <th><abbr title="Available">Available</abbr></th>
-                            <th><abbr title="Register">Register</abbr></th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <% course.Teacher.forEach(function(teacher, index) { %>
-                        <tr>
-                            <td><%= teacher.Slot %></td>
-                            <td><%= teacher.Name %></td>
-                            <td><%= teacher.available %></td>
-                            <td><input type="radio" name="teacher" value="<%= teacher.Teacher_number %>"></td>
-                        </tr>
-                        <% }); %>
-                    </tbody>
-                </div>
+                        <thead>
+                            <tr>
+                                <th><abbr title="Slot">Slot</abbr></th>
+                                <th><abbr title="Faculty">Faculty</abbr></th>
+                                <th><abbr title="Available">Available</abbr></th>
+                                <th><abbr title="Register">Register</abbr></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th><abbr title="Slot">Slot</abbr></th>
+                                <th><abbr title="Faculty">Faculty</abbr></th>
+                                <th><abbr title="Available">Available</abbr></th>
+                                <th><abbr title="Register">Register</abbr></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <% course.Teacher.forEach(function(teacher, index) { %>
+                            <tr>
+                                <td>
+                                    <%= teacher.Slot %>
+                                </td>
+                                <td>
+                                    <%= teacher.Name %>
+                                </td>
+                                <td>
+                                    <%= teacher.available %>
+                                </td>
+                                <td><input type="radio" name="teacher" value="<%= teacher.Teacher_number %>"></td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </div>
+                    <form action="/registercourseteacher" method="POST" id="coursesubmit">
+                        <input type="text" id="Slot" hidden />
+                        <input type="text" id="Faculty" hidden />
+                        <input type="text" id="coursecode" value="<%= course.Coursecode %>" hidden />
+                    </form>
                 </table>
                 <section class="info-tiles">
                     <div class="tile is-ancestor has-text-centered">
@@ -190,7 +233,6 @@
                         </div>
                     </div>
                 </section>
-</form>
             </div>
         </div>
     </div>
