@@ -106,18 +106,17 @@
                                 <p class="subtitle has-text-weight-bold has-text-black">Search for your Courses</p>
                                 <div class="field">
                                     <div class="control">
-                                      <form method="POST" action="/regular/course/">
-                                        <input class="input is-hovered" type="text" id="search" placeholder="Search for Courses"></input>
-                                    <br>
-                                  </div>
-                                      <button class="button is-dark is-rounded" align="Center" id="search_button" type='submit'>Search</button>
-                                  </form>
+                                        <!--input class="input is-hovered" type="text" id="search" placeholder="Search for Courses"></input-->
+                                        <input class="input is-hovered" type="text" id="search" onkeyup="searchFunction()" placeholder="Search for courses.." title="Type a Courses">
+                                        <br>
+                                    </div>
+
 
                             </article>
                         </div>
                     </div>
                 </section>
-                <table class="table">
+                <table class="table" id="courseTable">
                     <thead>
                         <tr>
                             <th><abbr title="Serial no.">S.no</abbr></th>
@@ -148,7 +147,7 @@
                     </tfoot>
                     <tbody>
                         <tr>
-                            <th>1</th>
+                            <td>1</td>
                             <td>ECM1001</td>
                             <td><a href="../public/utils/ECM1001.pdf" title="Circuit Theory">Circuit Theory</a></td>
                             <td>2</td>
@@ -160,7 +159,7 @@
                             <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
                         </tr>
                         <tr>
-                            <th>2</th>
+                            <td>2</td>
                             <td>ECE3002</td>
                             <td><a href="../public/utils/ECE3002.pdf" title="VLSI System Design">VLSI System Design</a></td>
                             <td>3</td>
@@ -172,7 +171,7 @@
                             <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
                         </tr>
                         <tr>
-                            <th>4</th>
+                            <td>4</td>
                             <td>ECE2005</td>
                             <td><a href="../public/utils/ECE2005.pdf" title="Probability Thoery and Random Processes">Probability Thoery and Random Processes</a></td>
                             <td>3</td>
@@ -189,6 +188,26 @@
             </div>
         </div>
     </div>
+    <script>
+        function searchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("courseTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
     <script async type="text/javascript" src="../public/js/bulma.js"></script>
 </body>
 
