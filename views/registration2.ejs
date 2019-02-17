@@ -12,6 +12,7 @@
     <!-- Bulma Version 0.7.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/admin.css">
+
 </head>
 
 <body>
@@ -42,6 +43,7 @@
                     </a>
                     <a class="navbar-item" href="dashboard.html">
                         Payments
+
                     </a>
                 </div>
 
@@ -104,49 +106,13 @@
                                 <p class="subtitle has-text-weight-bold has-text-black">Search for your Courses</p>
                                 <div class="field">
                                     <div class="control">
-                                        <input class="input is-hovered" type="text" placeholder="Search for Courses">
-                                    </div>
+                                      <form method="POST" action="/regular/course/">
+                                        <input class="input is-hovered" type="text" id="search" placeholder="Search for Courses"></input>
                                     <br>
-                                    <!--p align="left">Credits Looking For</p>
-                                    <br>
-                                    <div class="control">
-                                        <div class="select">
-                                            <select class="is-hovered">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>20</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <p align="left">Preferred Slot?</p>
-                                    <br>
-                                    <div class="control">
-                                        <div class="select">
-                                            <select class="is-hovered">
-                                                <option>A1</option>
-                                                <option>B1</option>
-                                                <option>C1</option>
-                                                <option>D1</option>
-                                                <option>E1</option>
-                                                <option>F1</option>
-                                                <option>G1</option>
-                                                <option>A2</option>
-                                                <option>B2</option>
-                                                <option>C2</option>
-                                                <option>D2</option>
-                                                <option>E2</option>
-                                                <option>F2</option>
-                                                <option>G2</option>
-                                            </select>
-                                        </div>
-                                        <br><br>
-                                        <a class="button is-dark is-rounded" align="Center">Search</a>
-                                    </div-->
-                                    <a class="button is-dark is-rounded" align="Center">Search</a>
+                                  </div>
+                                      <button class="button is-dark is-rounded" align="Center" id="search_button" type='submit'>Search</button>
+                                  </form>
+
                             </article>
                         </div>
                     </div>
