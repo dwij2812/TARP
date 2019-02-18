@@ -148,92 +148,54 @@
                     </div>
                 </section>
                 <table class="table" id="courseTable">
+                    <div class="control">
                     <thead>
                         <tr>
-                            <th><abbr title="Serial no.">S.no</abbr></th>
-                            <th><abbr title="Course Code">C Code.</abbr></th>
-                            <th><abbr title="Course Name">Name</abbr></th>
-                            <th><abbr title="Lecture">L</abbr></th>
-                            <th><abbr title="Theory">T</abbr></th>
-                            <th><abbr title="Practical">P</abbr></th>
-                            <th><abbr title="Project">J</abbr></th>
-                            <th><abbr title="Cummulative">C</abbr></th>
                             <th><abbr title="Slot(s)">Slot(s)</abbr></th>
-                            <th>Register</th>
+                            <th><abbr title="Faculty">Faculty</abbr></th>
+                            <th><abbr title="Available">Available</abbr></th>
+                            <th><abbr title="Register">Register</abbr></th>
+                            <th><abbr title="Waitlist">Waitlist</abbr></th>
+                            <th><abbr title="Register">Register</abbr></th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th><abbr title="Serial no.">S.no</abbr></th>
-                            <th><abbr title="Course Code">C Code.</abbr></th>
-                            <th><abbr title="Course Name">Name</abbr></th>
-                            <th><abbr title="Lecture">L</abbr></th>
-                            <th><abbr title="Theory">T</abbr></th>
-                            <th><abbr title="Practical">P</abbr></th>
-                            <th><abbr title="Project">J</abbr></th>
-                            <th><abbr title="Cummulative">C</abbr></th>
                             <th><abbr title="Slot(s)">Slot(s)</abbr></th>
-                            <th>Register</th>
+                            <th><abbr title="Faculty">Faculty</abbr></th>
+                            <th><abbr title="Available">Available</abbr></th>
+                            <th><abbr title="Register">Register</abbr></th>
+                            <th><abbr title="Waitlist">Waitlist</abbr></th>
+                            <th><abbr title="Register">Register</abbr></th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <% courselist.forEach(function(course, index) { %>
                         <tr>
-                            <td>
-                                <%= index+1 %>
-                            </td>
-                            <td>
-                                <%= course.Coursecode %>
-                            </td>
-                            <td><a title="<%= course.Coursename %>">
-                                    <%= course.Coursename %></a></td>
-                            <td>
-                                <%= course.L %>
-                            </td>
-                            <td>
-                                <%= course.T %>
-                            </td>
-                            <td>
-                                <%= course.P %>
-                            </td>
-                            <td>
-                                <%= course.J %>
-                            </td>
-                            <td>
-                                <%= course.C %>
-                            </td>
-                            <td>
-                                <%= course.slots %>
-                            </td>
-                            <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
+                            <td><%= slot %></td>
+                            <td><%= faculty %></td>
+                            <td><%= available %></td>
+                            <td><input type="radio" name="reg<%= faculty %>"></td>
+                            <td><%= wait %></td>
+                            <td><input type="radio" name="wait<%= faculty %>"></td>
                         </tr>
                         <% }); %>
                     </tbody>
+                </div>
                 </table>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="subtitle has-text-weight-bold has-text-black"><a class="button is-success">Register</a></p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
 
             </div>
         </div>
     </div>
-    <script>
-        function searchFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("courseTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
     <script async type="text/javascript" src="../public/js/bulma.js"></script>
 </body>
 
