@@ -95,7 +95,6 @@
                             </h2>
                             <h2 class="subtitle">
                                 <%= email %>
-                            </h2>
                         </div>
                     </div>
                 </section>
@@ -146,42 +145,20 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        <% courselist.forEach(function(course, index) { %>
                         <tr>
-                            <td>1</td>
-                            <td>ECM1001</td>
-                            <td><a href="../public/utils/ECM1001.pdf" title="Circuit Theory">Circuit Theory</a></td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>3</td>
-                            <td>F1+TF1,F2+TF2</td>
+                            <td><%= index+1 %></td>
+                            <td><%= course.Coursecode %></td>
+                            <td><a title="<%= course.Coursename %>"><%= course.Coursename %></a></td>
+                            <td><%= course.L %></td>
+                            <td><%= course.T %></td>
+                            <td><%= course.P %></td>
+                            <td><%= course.J %></td>
+                            <td><%= course.C %></td>
+                            <td><%= course.slots %></td>
                             <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>ECE3002</td>
-                            <td><a href="../public/utils/ECE3002.pdf" title="VLSI System Design">VLSI System Design</a></td>
-                            <td>3</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>4</td>
-                            <td>D1+TD1,D2+TD2</td>
-                            <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>ECE2005</td>
-                            <td><a href="../public/utils/ECE2005.pdf" title="Probability Thoery and Random Processes">Probability Thoery and Random Processes</a></td>
-                            <td>3</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>3</td>
-                            <td>A1+TA1</td>
-                            <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
-                        </tr>
+                        <% }); %>
                     </tbody>
                 </table>
 

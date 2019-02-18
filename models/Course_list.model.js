@@ -12,4 +12,4 @@ var courselist = new Schema({
   slots:String
 
 });
-module.exports = mongoose.model('Course_list',courselist);
+module.exports = mongoose.model('course_list',courselist);
