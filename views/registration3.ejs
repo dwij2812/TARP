@@ -22,35 +22,46 @@
             }
 
 function run() {
-    var t = document.getElementById('courseTable');
-    t.onclick = function (event) {
-        event = event || window.event; //IE8
-        var target = event.target || event.srcElement;
-        while (target && target.nodeName != 'TR') { // find TR
-            target = target.parentElement;
+            var t = document.getElementById('courseTable');
+            t.onclick = function (event) {
+                event = event || window.event;
+                var target = event.target || event.srcElement;
+                while (target && target.nodeName != 'TR') {
+                    target = target.parentElement;
+                }
+                var cells = target.cells;
+                if (!cells.length || target.parentNode.nodeName == 'THEAD') {
+                    return;
+                }
+                var f1 = document.getElementById('slot_val');
+                var f2 = document.getElementById('faculty_val');
+                f1.value = cells[0].innerHTML.trim();
+                f2.value = cells[1].innerHTML.trim();
+                //console.log(target.nodeName, event);
+                console.log(f1.value,f2.value);
+            };
         }
-        //if (!target) { return; } //tr should be always found
-        var cells = target.cells; //cell collection - https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement
-        //var cells = target.getElementsByTagName('td'); //alternative
-        if (!cells.length || target.parentNode.nodeName == 'THEAD') {
-            return;
-        }
-        var f1 = document.getElementById('Slot');
-        var f2 = document.getElementById('Faculty');
-        f1.value = cells[0].innerHTML;
-        f2.value = cells[1].innerHTML;
-        //console.log(target.nodeName, event);
-        console.log(f1,f2);
-    };
-}
 
-})();
+        })();
+    </script>
+    <script>
+        function DoPost(){
+        console.log(document.getElementById("slot_val").value);
+        console.log(document.getElementById("faculty_val").value);
+        console.log("Post Requested");
+        document.getElementById("coursesubmit").submit();
+    }
     </script>
 
 </head>
 
 <body>
-
+    <form action="/registercourseteacher" method="POST" id="coursesubmit">
+        <input type="text" name="slot_val" id="slot_val" hidden />
+        <input type="text" name="faculty_val" id="faculty_val" hidden />
+        <input type="text" name="registerno" id="registerno" value="<%= register %>" hidden />
+        <input type="text" name="coursecode" id="coursecode" value="<%= course.Coursecode %>" hidden />
+    </form>
     <!-- START NAV -->
     <nav class="navbar is-dark is-fixed-top">
         <div class="container">
@@ -218,17 +229,13 @@ function run() {
                             <% }); %>
                         </tbody>
                     </div>
-                    <form action="/registercourseteacher" method="POST" id="coursesubmit">
-                        <input type="text" id="Slot" hidden />
-                        <input type="text" id="Faculty" hidden />
-                        <input type="text" id="coursecode" value="<%= course.Coursecode %>" hidden />
-                    </form>
+
                 </table>
                 <section class="info-tiles">
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box">
-                                <p class="subtitle has-text-weight-bold has-text-black"><a class="button is-success">Register</a></p>
+                                <p class="subtitle has-text-weight-bold has-text-black"><a class="button is-dark" onclick="DoPost();">Register</a></p>
                             </article>
                         </div>
                     </div>

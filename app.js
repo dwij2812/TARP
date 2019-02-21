@@ -17,6 +17,7 @@ mongoose.connect(db,function(err,db){
     console.log("Database has been Successfully Connected")
   }
 });
+mongoose.set('useFindAndModify', false);
 
 app.listen(3000, () => {
     console.log('Listening at Port 3000');

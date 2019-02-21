@@ -5,6 +5,12 @@ var student_academic = new Schema({
   Credits_c:Number,
   Credits_R:Number,
   CGPA:String,
-  List_Course:Array
+  List_Course: [
+        {
+            coursecode: String,
+            faculty: String,
+            slot: String
+        }
+    ]
 });
 module.exports = mongoose.model('student_detail_academic',student_academic);

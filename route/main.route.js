@@ -10,4 +10,5 @@ router.post('/register',main_controller.register)
 router.post('/regular',main_controller.regular)
 router.post('/regular/course',search_controller.search)
 router.post('/registercourse',registration_controller.registercourse)
+router.post('/registercourseteacher',registration_controller.registercourseteacher)
 module.exports=router
