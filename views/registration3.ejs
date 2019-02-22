@@ -98,7 +98,11 @@
                         </div>
                     </div>
                 </section>
-                <section class="info-tiles">
+                <section class="info-tiles"
+                <form action="/registercourseteacher" method="POST" id="coursesubmit">
+                  <input type="text" name="coursecode" id="coursecode" value="<%= course.Coursecode %>" hidden />
+                  
+
                     <table class="table is-narrow is-bordered" id="coursedetail">
                         <thead>
                             <tr>
@@ -155,8 +159,6 @@
                             <th><abbr title="Faculty">Faculty</abbr></th>
                             <th><abbr title="Available">Available</abbr></th>
                             <th><abbr title="Register">Register</abbr></th>
-                            <th><abbr title="Waitlist">Waitlist</abbr></th>
-                            <th><abbr title="Register">Register</abbr></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -165,19 +167,15 @@
                             <th><abbr title="Faculty">Faculty</abbr></th>
                             <th><abbr title="Available">Available</abbr></th>
                             <th><abbr title="Register">Register</abbr></th>
-                            <th><abbr title="Waitlist">Waitlist</abbr></th>
-                            <th><abbr title="Register">Register</abbr></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <% courselist.forEach(function(course, index) { %>
+                        <% course.Teacher.forEach(function(teacher, index) { %>
                         <tr>
-                            <td><%= slot %></td>
-                            <td><%= faculty %></td>
-                            <td><%= available %></td>
-                            <td><input type="radio" name="reg<%= faculty %>"></td>
-                            <td><%= wait %></td>
-                            <td><input type="radio" name="wait<%= faculty %>"></td>
+                            <td><%= teacher.Slot %></td>
+                            <td><%= teacher.Name %></td>
+                            <td><%= teacher.available %></td>
+                            <td><input type="radio" name="teacher" value="<%= teacher.Teacher_number %>"></td>
                         </tr>
                         <% }); %>
                     </tbody>
@@ -192,7 +190,7 @@
                         </div>
                     </div>
                 </section>
-
+</form>
             </div>
         </div>
     </div>

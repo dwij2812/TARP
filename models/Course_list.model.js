@@ -8,8 +8,7 @@ var courselist = new Schema({
   P:Number,
   J:Number,
   C:Number,
-  Teacher:String,
-  slots:String
+  Teacher:Array
 
 });
 module.exports = mongoose.model('course_list',courselist);

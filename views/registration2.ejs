@@ -12,11 +12,24 @@
     <!-- Bulma Version 0.7.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/admin.css">
-
+    <script language="javascript">
+    function ReqSub(c1){
+      console.log("Post Requested for subject registration");
+      oFormObject = document.forms['coursesubmit'];
+      oFormElement = oFormObject.elements['coursecode'];
+      oFormElement.value = c1;
+      oFormObject.submit();
+      console.log(c1+"is Registered");
+    }
+    </script>
 </head>
 
-<body>
 
+
+<body>
+    <form action="/registercourse" method="POST" id="coursesubmit">
+      <input type="text" name="coursecode" id="coursecode" hidden />
+    </form>
     <!-- START NAV -->
     <nav class="navbar is-dark is-fixed-top">
         <div class="container">
@@ -126,7 +139,6 @@
                             <th><abbr title="Practical">P</abbr></th>
                             <th><abbr title="Project">J</abbr></th>
                             <th><abbr title="Cummulative">C</abbr></th>
-                            <th><abbr title="Slot(s)">Slot(s)</abbr></th>
                             <th>Register</th>
                         </tr>
                     </thead>
@@ -140,7 +152,6 @@
                             <th><abbr title="Practical">P</abbr></th>
                             <th><abbr title="Project">J</abbr></th>
                             <th><abbr title="Cummulative">C</abbr></th>
-                            <th><abbr title="Slot(s)">Slot(s)</abbr></th>
                             <th>Register</th>
                         </tr>
                     </tfoot>
@@ -155,8 +166,7 @@
                             <td><%= course.P %></td>
                             <td><%= course.J %></td>
                             <td><%= course.C %></td>
-                            <td><%= course.slots %></td>
-                            <td><a class="button is-dark is-rounded" align="Center">Register</a></td>
+                            <td><a class="button is-dark is-rounded" align="Center" onclick="ReqSub('<%= course.Coursecode %>');">Register</a></td>
                         </tr>
                         <% }); %>
                     </tbody>
