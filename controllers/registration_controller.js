@@ -34,5 +34,14 @@ exports.registercourseteacher = (req, res) => {
     {new: true})
     .exec(function(err,done){
         res.render("../views/reg_ack",{course:course_i,slot:slot_i,faculty:faculty_i})
+        courselist.findOneAndUpdate({Coursecode:course_i, 'Teacher.Name':faculty_i},
+            {$inc : {'Teacher.$.available': -1}},
+            {new: true}
+        )
+        .exec(function(err,done){
+            console.log(done)
+            console.log("decremented")
+        })
+
     })
 }
