@@ -38,10 +38,8 @@ exports.registercourseteacher = (req, res) => {
             {$inc : {'Teacher.$.available': -1}},
             {new: true}
         )
-        .exec(function(err,done){
-            console.log(done)
-            console.log("decremented")
+        .exec(function(err,th){
+            console.log("Registered a Teacher")
         })
-
     })
 }

@@ -35,8 +35,10 @@ function run() {
                 }
                 var f1 = document.getElementById('slot_val');
                 var f2 = document.getElementById('faculty_val');
+                var f3 = document.getElementById('Available');
                 f1.value = cells[0].innerHTML.trim();
                 f2.value = cells[1].innerHTML.trim();
+                f3.value = cells[2].innerHTML.trim();
                 //console.log(target.nodeName, event);
                 console.log(f1.value,f2.value);
             };
@@ -48,8 +50,14 @@ function run() {
         function DoPost(){
         console.log(document.getElementById("slot_val").value);
         console.log(document.getElementById("faculty_val").value);
-        console.log("Post Requested");
-        document.getElementById("coursesubmit").submit();
+        console.log(document.getElementById("Available").value);
+        if(document.getElementById("Available").value>0){
+            console.log("Post Requested");
+            document.getElementById("coursesubmit").submit();
+        }
+        else{
+            alert("The Teacher Selected is Full Please choose other option")
+        }
     }
     </script>
 
@@ -59,6 +67,7 @@ function run() {
     <form action="/registercourseteacher" method="POST" id="coursesubmit">
         <input type="text" name="slot_val" id="slot_val" hidden />
         <input type="text" name="faculty_val" id="faculty_val" hidden />
+        <input type="text" name="Available" id="Available" hidden />
         <input type="text" name="registerno" id="registerno" value="<%= register %>" hidden />
         <input type="text" name="coursecode" id="coursecode" value="<%= course.Coursecode %>" hidden />
     </form>
@@ -121,14 +130,6 @@ function run() {
             </div>
 
             <div class="column is-9">
-                <!--nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        <li><a href="../">Bulma</a></li>
-                        <li><a href="../">Templates</a></li>
-                        <li><a href="../">Examples</a></li>
-                        <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
-                    </ul>
-                </nav-->
                 <section class="hero is-info welcome is-small">
                     <div class="hero-body">
                         <div class="container">
@@ -224,7 +225,12 @@ function run() {
                                 <td>
                                     <%= teacher.available %>
                                 </td>
+                                <% if( teacher.available > 0){ %>
                                 <td><input type="radio" name="teacher" value="<%= teacher.Teacher_number %>"></td>
+                                <% } else{ %>
+                                <td><input type="radio" name="teacher" value="<%= teacher.Teacher_number %>" disabled></td>
+                                <% } %>
+
                             </tr>
                             <% }); %>
                         </tbody>
