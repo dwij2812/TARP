@@ -1,0 +1,187 @@
+<!-- Timetable -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Timetable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css?d=30-6-2018" />
+
+</head>
+<body>
+ <div class="container-fluid text-center noselect">
+   <div id="timetable" class="row table-responsive">
+     <table class="table table-bordered">
+       <tr style="display:none" class="screenshot_msg">
+         <td colspan="16">FFCS on The Go | bit.ly/FFCSOTG</td>
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">THEORY
+           <br>HOURS</td>
+         <td class="TheoryHours">08:00 AM
+           <br>to
+           <br>08:50 AM</td>
+         <td class="TheoryHours">08:55 AM
+           <br>to
+           <br>09:45 AM</td>
+         <td class="TheoryHours">09:50 AM
+           <br>to
+           <br>10:40 AM</td>
+         <td class="TheoryHours">10:45 AM
+           <br>to
+           <br>11:35 AM</td>
+         <td class="TheoryHours">11:40 PM
+           <br>to
+           <br>12:30 PM</td>
+         <td class="TheoryHours"></td>
+         <td width="8px" rowspan="9" class="ColumnOneDays">
+           <strong>L
+             <br>U
+             <br>N
+             <br>C
+             <br>H</strong>
+         </td>
+         <td class="TheoryHours">02:00 PM
+           <br>to
+           <br>02:50 PM</td>
+         <td class="TheoryHours">02:55 PM
+           <br>to
+           <br>03:45 PM</td>
+         <td class="TheoryHours">03:50 PM
+           <br>to
+           <br>04:40 PM</td>
+         <td class="TheoryHours">04:45 PM
+           <br>to
+           <br>05:35 PM</td>
+         <td class="TheoryHours">05:40 PM
+           <br>to
+           <br>06:30 PM</td>
+         <td class="TheoryHours">06:35 PM
+           <br>to
+           <br>07:25 PM</td>
+         <!--<td class="TheoryHours">07:00 PM<br>to<br>07:50 PM</td>
+         <td class="TheoryHours">08:00 PM<br>to<br>08:50 PM</td>-->
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">LAB
+           <br>HOURS</td>
+         <td class="LabHours">08:00 AM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>09:40 AM</td>
+         <td class="LabHours">09:50 AM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>11:30 AM</td>
+         <td class="LabHours">11:40 AM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>01:20 PM</td>
+         <td class="LabHours">02:00 PM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>03:40 PM</td>
+         <td class="LabHours">03:50 PM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>05:30 PM</td>
+         <td class="LabHours">05:40 PM
+           <br>to
+           <br>-</td>
+         <td class="LabHours">-
+           <br>to
+           <br>07:20 PM</td>
+       </tr>
+       <tr>
+         <!-- IMPORTANT: It's important to maintain the order of class. i.e. A1,F1,D1,.. are 2nd -->
+         <td class="ColumnOneDays">MON</td>
+         <td class="TimetableContent A1 L1 noPostLab">A1 / L1</td>
+         <td class="TimetableContent F1 L2 noPreTheory">F1 / L2</td>
+         <td class="TimetableContent D1 L3 noPostLab">D1 / L3</td>
+         <td class="TimetableContent TB1 L4 noPostLab noPreTheory">TB1 / L4</td>
+         <td class="TimetableContent TG1 L5 noPostLab noPreTheory">TG1 / L5</td>
+         <td class="TimetableContent L6 noPreTheory">L6</td>
+         <td class="TimetableContent A2 L31 noPostLab">A2 / L31</td>
+         <td class="TimetableContent F2 L32 noPreTheory">F2 / L32</td>
+         <td class="TimetableContent D2 L33 noPostLab">D2 / L33</td>
+         <td class="TimetableContent TB2 L34 noPostLab noPreTheory">TB2 / L34</td>
+         <td class="TimetableContent TG2 L35 noPostLab noPreTheory">TG2 / L35</td>
+         <td class="TimetableContent L36 noPreTheory">L36</td>
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">TUE</td>
+         <td class="TimetableContent B1 L7 noPostLab">B1 / L7</td>
+         <td class="TimetableContent G1 L8 noPreTheory">G1 / L8</td>
+         <td class="TimetableContent E1 L9 noPostLab">E1 / L9</td>
+         <td class="TimetableContent TC1 L10 noPostLab noPreTheory">TC1 / L10</td>
+         <td class="TimetableContent TAA1 L11 noPostLab noPreTheory">TAA1 / L11</td>
+         <td class="TimetableContent L12 noPreTheory">L12</td>
+         <td class="TimetableContent B2 L37 noPostLab">B2 / L37</td>
+         <td class="TimetableContent G2 L38 noPreTheory">G2 / L38</td>
+         <td class="TimetableContent E2 L39 noPostLab">E2 / L39</td>
+         <td class="TimetableContent TC2 L40 noPostLab noPreTheory">TC2 / L40</td>
+         <td class="TimetableContent TAA2 L41 noPostLab noPreTheory">TAA2 / L41</td>
+         <td class="TimetableContent L42 noPreTheory">L42</td>
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">WED</td>
+         <td class="TimetableContent C1 L13 noPostLab">C1 / L13</td>
+         <td class="TimetableContent A1 L14 noPreTheory">A1 / L14</td>
+         <td class="TimetableContent F1 L15 noPostLab">F1 / L15</td>
+         <td class="TimetableContent TD1 L16 noPostLab noPreTheory">TD1 / L16</td>
+         <td class="TimetableContent TBB1 L17 noPostLab noPreTheory">TBB1 / L17</td>
+         <td class="TimetableContent L18">L18</td>
+         <td class="TimetableContent C2 L43 noPostLab">C2 / L43</td>
+         <td class="TimetableContent A2 L44 noPreTheory">A2 / L44</td>
+         <td class="TimetableContent F2 L45 noPostLab">F2 / L45</td>
+         <td class="TimetableContent TD2 L46 noPostLab noPreTheory">TD2 / L46</td>
+         <td class="TimetableContent TBB2 L47 noPostLab noPreTheory">TBB2 / L47</td>
+         <td class="TimetableContent L48 noPreTheory">L48</td>
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">THU</td>
+         <td class="TimetableContent D1 L19 noPostLab">D1 / L19</td>
+         <td class="TimetableContent B1 L20 noPreTheory">B1 / L20</td>
+         <td class="TimetableContent G1 L21 noPostLab">G1 / L21</td>
+         <td class="TimetableContent TE1 L22 noPostLab noPreTheory">TE1 / L22</td>
+         <td class="TimetableContent TCC1 L23 noPostLab noPreTheory">TCC1 / L23</td>
+         <td class="TimetableContent L24 noPreTheory">L24</td>
+         <td class="TimetableContent D2 L49 noPostLab">D2 / L49</td>
+         <td class="TimetableContent B2 L50 noPreTheory">B2 / L50</td>
+         <td class="TimetableContent G2 L51 noPostLab">G2 / L51</td>
+         <td class="TimetableContent TE2 L52 noPostLab noPreTheory">TE2 / L52</td>
+         <td class="TimetableContent TCC2 L53 noPostLab noPreTheory">TCC2 / L53</td>
+         <td class="TimetableContent L54 noPreTheory">L54</td>
+       </tr>
+       <tr>
+         <td class="ColumnOneDays">FRI</td>
+         <td class="TimetableContent E1 L25 noPostLab">E1 / L25</td>
+         <td class="TimetableContent C1 L26 noPreTheory">C1 / L26</td>
+         <td class="TimetableContent TA1 L27 noPostLab">TA1 / L27</td>
+         <td class="TimetableContent TF1 L28 noPostLab noPreTheory">TF1 / L28</td>
+         <td class="TimetableContent TDD1 L29 noPostLab noPreTheory">TDD1 / L29</td>
+         <td class="TimetableContent L30 noPreTheory">L30</td>
+         <td class="TimetableContent E2 L55 noPostLab">E2 / L55</td>
+         <td class="TimetableContent C2 L56 noPreTheory">C2 / L56</td>
+         <td class="TimetableContent TA2 L57 noPostLab">TA2 / L57</td>
+         <td class="TimetableContent TF2 L58 noPostLab noPreTheory">TF2 / L58</td>
+         <td class="TimetableContent TDD2 L59 noPostLab noPreTheory">TDD2 / L59</td>
+         <td class="TimetableContent L60 noPreTheory">L60</td>
+       </tr>
+     </table>
+   </div>
+ </div>
+ </body>
+ </html>
