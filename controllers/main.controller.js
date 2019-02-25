@@ -125,17 +125,23 @@ exports.regular = (req, res) => {
                 mobile = student_personal_db['Mobile']
             }
         })
-        courselist.find({}, function(err, course_list_db) {
-            if (err) {
-                res.send('error occured')
-                console.log("error in student_personal")
-            } else {
-                clist=course_list_db
-            }
-            res.render("../views/registration2", {
-                'register': register_no,
-                'email': email,
-                'courselist': clist
-            })
+    courselist.find({}, function(err, course_list_db) {
+        if (err) {
+            res.send('error occured')
+            console.log("error in student_personal")
+        } else {
+            clist = course_list_db
+        }
+        res.render("../views/registration2", {
+            'register': register_no,
+            'email': email,
+            'courselist': clist
         })
+    })
+}
+
+exports.timetable = (req, res) => {
+    res.render("../views/timetable")
+    register_no = req.body.regno
+    console.log(register_no)
 }

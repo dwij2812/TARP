@@ -13,16 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../public/css/admin.css">
     <script language="javascript">
-   function Doer(){
+        function Doer(){
      console.log("Post Requested");
       document.getElementById("Proceed").submit();
    }
 
 </script>
+    <script>
+        function timetable(){
+      console.log("Post Requested");
+      document.getElementById("timetablesubmit").submit();
+    }
+</script>
 </head>
 
 <body>
-
+    <form action="/timetable" method="POST" id="timetablesubmit">
+        <input type="text" name="regno" id="regno" value="<%= register %>" hidden>
+    </form>
     <!-- START NAV -->
     <nav class="navbar is-dark is-fixed-top">
         <div class="container">
@@ -41,7 +49,7 @@
                     <a class="navbar-item" href="dashboard.html">
                         Home
                     </a>
-                    <a class="navbar-item" href="dashboard.html">
+                    <a class="navbar-item" onclick="timetable()">
                         Timetable
                     </a>
                     <a class="navbar-item" href="dashboard.html">
@@ -139,7 +147,7 @@
                                     <br>
                                     <a class="button is-dark is-rounded" onclick="Doer()">Proceed</a>
                                     <form action="/regular" method="POST" id="Proceed">
-                                      <input type="text" name="regno" id="regno" value="<%= register %>" hidden>
+                                        <input type="text" name="regno" id="regno" value="<%= register %>" hidden>
                                     </form>
                                 </div>
                             </article>
