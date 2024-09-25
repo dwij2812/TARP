@@ -23,7 +23,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "bulma": "^0.7.2",
-    "bulma-calendar": "^6.0.2",
+    "bulma-calendar": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
